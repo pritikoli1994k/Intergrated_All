@@ -11,9 +11,8 @@ pipeline {
 
         stage('Cleanup') {
             steps {
-                bat '''
-               bat 'docker container prune -f'
-                '''
+                // Remove all stopped containers safely
+                bat 'docker container prune -f'
             }
         }
 
@@ -25,6 +24,7 @@ pipeline {
 
         stage('Create Container') {
             steps {
+                // Run container from newly built image
                 bat 'docker run -d -p 8501:8501 myapp'
             }
         }
