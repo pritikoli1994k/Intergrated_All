@@ -12,7 +12,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 bat '''
-                for /f %%i in ('docker ps -aq') do docker rm -f %%i
+                for /F %i in ('docker ps -aq') do docker rm -f %i
                 '''
             }
         }
