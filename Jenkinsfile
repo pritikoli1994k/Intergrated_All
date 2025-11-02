@@ -12,9 +12,7 @@ pipeline {
         stage('Cleanup') {
             steps {
                 bat '''
-                echo Cleaning up old Docker containers...
-                for /f %%i in ('docker ps -aq') do docker rm -f %%i
-
+               bat 'docker container prune -f'
                 '''
             }
         }
