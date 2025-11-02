@@ -11,17 +11,16 @@ pipeline{
         stage('Cleanup')
         {
             steps{
-                   bat 'docker rm -f $(docker ps -aq)'
+                   bat '''
+                   for /f %%i  in ('docker ps -aq') do docker rm -f %%i
+                   '''
                     }   
 
                  }
         stage("Build image")
         {
             steps{
-                   stage('Build') {
-                         main.sh('docker build -t myapp .')
-                    }   
-
+                  bat 'docker build -t myapp .'
                  }
 
         }
