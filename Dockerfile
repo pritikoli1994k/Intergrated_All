@@ -1,8 +1,8 @@
 #pull base image 
-FROM python:3.14-slim 
+FROM python:3.14-slim
 
-#install Streamlit 
-RUN pip install Streamlit
+#install Streamlit
+RUN pip install streamlit
 
 #set working directory 
 WORKDIR /var
@@ -14,4 +14,4 @@ COPY etl.py .
 EXPOSE 8501
 
 #run streamlit app
-CMD [ "streamlit","run","etl.py" ]
+CMD ["streamlit","run","etl.py"]
