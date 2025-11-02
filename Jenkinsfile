@@ -11,7 +11,7 @@ pipeline{
         stage('Cleanup')
         {
             steps{
-                   bat 'docker rm -f $(docker ps -q)'
+                   bat 'docker rm -f $(docker ps -aq)'
                     }   
 
                  }
