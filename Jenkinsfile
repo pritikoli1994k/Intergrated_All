@@ -11,7 +11,10 @@ pipeline{
         stage("Build image")
         {
             steps{
-                    bat 'docker build -t myimage .'
+                   stage('Build') {
+                         main.sh('docker build -t myapp .')
+                    }   
+→ Jenkin
                  }
 
         }
