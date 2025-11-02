@@ -8,13 +8,20 @@ pipeline{
                  }
 
         }
+        stage('Cleanup')
+        {
+            steps{
+                   bat 'docker rm -f $(docker ps -q)'
+                    }   
+
+                 }
         stage("Build image")
         {
             steps{
                    stage('Build') {
                          main.sh('docker build -t myapp .')
                     }   
-→ Jenkin
+
                  }
 
         }
