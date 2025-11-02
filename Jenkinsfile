@@ -4,7 +4,7 @@ pipeline{
         stage("checkput code")
         {
             steps{
-                    git url:"https://github.com/pritikoli1994k/Intergrated_All.git" ,branch :main 
+                    git url:"https://github.com/pritikoli1994k/Intergrated_All.git" ,branch:'main'
                  }
 
         }
